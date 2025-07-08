@@ -1,0 +1,58 @@
+# Конфигурация плагина UraniumCraft
+
+# Настройки авторизации
+auth:
+  enabled: true
+  max-attempts: 3
+  cooldown-minutes: 5
+  codes:
+    - "URANIUM-2024"
+    - "NUCLEAR-TECH"
+    - "ATOM-POWER"
+    - "QUANTUM-ACCESS"
+    - "RADIATION-SAFE"
+
+# Настройки радиации
+radiation:
+  enabled: true
+  update-interval: 100  # Интервал обновления в тиках (5 секунд)
+  
+# Настройки центрифуги
+centrifuge:
+  processing-time: 300  # Время обработки в секундах (5 минут)
+  output-multiplier: 3  # Множитель выхода материалов
+  
+# Настройки лаборатории
+laboratory:
+  energy-regen-rate: 10  # Скорость регенерации энергии
+  max-level: 5          # Максимальный уровень лаборатории
+  
+# Настройки телепорта
+teleporter:
+  max-energy: 5000      # Максимальная энергия телепорта
+  energy-per-block: 10  # Энергия за блок расстояния
+  
+# Настройки визуальных эффектов
+visual-effects:
+  enabled: true
+  particle-density: 1.0  # Плотность частиц (0.0 - 2.0)
+  
+# Настройки предметов
+railgun:
+  max-energy: 1000      # Максимальная энергия рельсотрона
+  cooldown: 1000        # Кулдаун между выстрелами в мс
+  
+power-armor:
+  max-energy: 1000      # Максимальная энергия силовой брони
+  energy-regen: 50      # Регенерация энергии в минуту
+  
+uranium-tablet:
+  max-energy: 2000      # Максимальная энергия планшета
+  auto-regen: true      # Автоматическая регенерация
+  
+# Настройки сообщений
+messages:
+  prefix: "&7[&6UraniumCraft&7]"
+  radiation-warning: "&c⚠ Высокий уровень радиации!"
+  structure-created: "&aСтруктура успешно создана!"
+  insufficient-resources: "&cНедостаточно ресурсов!"

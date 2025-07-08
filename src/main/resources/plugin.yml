@@ -1,0 +1,53 @@
+name: UraniumCraft
+main: com.uranium.UraniumCraft
+version: 1.0.0
+api-version: 1.21
+depend: []
+softdepend: []
+description: Комплексный технологический плагин с системой радиации и атомных технологий
+author: UraniumCraft Team
+website: https://github.com/uraniumcraft/plugin
+
+commands:
+  uranium:
+    description: Главное меню плагина (только для админов)
+    usage: /uranium [guide|info|auth]
+    permission: uraniumcraft.admin
+    permission-message: §cТолько администраторы могут использовать эту команду!
+  
+  uraniumauth:
+    description: Авторизация в плагине
+    usage: /uraniumauth <код>
+    permission: uraniumcraft.auth
+    permission-message: §cУ вас нет прав для авторизации!
+  
+  uraniumadmin:
+    description: Административное управление
+    usage: /uraniumadmin [reload|cleanup]
+    permission: uraniumcraft.admin
+    permission-message: §cУ вас нет прав для использования этой команды!
+
+permissions:
+  uraniumcraft.auth:
+    description: Право на авторизацию в плагине
+    default: true
+  
+  uraniumcraft.admin:
+    description: Полный доступ к плагину
+    default: op
+  
+  uraniumcraft.centrifuge.create:
+    description: Создание центрифуг
+    default: true
+  
+  uraniumcraft.laboratory.create:
+    description: Создание лабораторий
+    default: true
+  
+  uraniumcraft.teleporter.admin:
+    description: Управление телепортами
+    default: op
+  
+  uraniumcraft.radiation.immune:
+    description: Иммунитет к радиации
+    default: false
