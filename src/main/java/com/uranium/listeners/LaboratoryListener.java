@@ -38,6 +38,12 @@ public class LaboratoryListener implements Listener {
                 // Проверка на клик по лаборатории
                 if (plugin.getLaboratoryManager().isLaboratory(event.getClickedBlock().getLocation())) {
                     event.setCancelled(true);
+                    
+                    // Проверка авторизации
+                    if (!plugin.getAuthManager().checkAuthAndNotify(event.getPlayer())) {
+                        return;
+                    }
+                    
                     plugin.getLaboratoryManager().openLaboratoryGUI(event.getPlayer(), event.getClickedBlock().getLocation());
                 }
             }

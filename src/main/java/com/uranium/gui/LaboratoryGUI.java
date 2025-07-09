@@ -25,7 +25,7 @@ public class LaboratoryGUI {
     }
     
     public void open() {
-        Inventory inv = Bukkit.createInventory(null, 45, "§9⚗ Лаборатория ⚗");
+        Inventory inv = Bukkit.createInventory(null, 54, "§9⚗ Лаборатория ⚗");
         
         // Статус лаборатории
         ItemStack status = new ItemStack(Material.ENCHANTING_TABLE);
@@ -41,10 +41,27 @@ public class LaboratoryGUI {
         }
         inv.setItem(22, status);
         
+        // Кнопка рецептов
+        ItemStack recipesButton = new ItemStack(Material.BOOK);
+        ItemMeta recipesMeta = recipesButton.getItemMeta();
+        if (recipesMeta != null) {
+            recipesMeta.setDisplayName("§6📋 Рецепты");
+            recipesMeta.setLore(Arrays.asList(
+                "§7Просмотр доступных рецептов",
+                "§8ЛКМ - открыть страницу рецептов"
+            ));
+            recipesButton.setItemMeta(recipesMeta);
+        }
+        inv.setItem(49, recipesButton);
+        
         // Доступные исследования
         int slot = 10;
         for (LaboratoryManager.ResearchType research : LaboratoryManager.ResearchType.values()) {
-            if (slot >= 35) break;
+            if (slot >= 44) break;
+            if (slot == 22 || slot == 49) {
+                slot++;
+                continue;
+            }
             
             ItemStack researchItem = new ItemStack(Material.BOOK);
             ItemMeta researchMeta = researchItem.getItemMeta();

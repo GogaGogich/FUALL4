@@ -95,13 +95,21 @@ public class AuthListener implements Listener {
         
         Player player = (Player) event.getWhoClicked();
         
-        // Проверяем, крафтит ли игрок предметы плагина
-        if (event.getRecipe() != null && isPluginItem(event.getRecipe().getResult())) {
+        // Проверяем авторизацию для ВСЕХ предметов плагина
+        if (event.getRecipe() != null && (isPluginItem(event.getRecipe().getResult()) || isPluginRecipe(event.getRecipe()))) {
             if (!plugin.getAuthManager().checkAuthAndNotify(player)) {
                 event.setCancelled(true);
                 return;
             }
         }
+    }
+    
+    private boolean isPluginRecipe(org.bukkit.inventory.Recipe recipe) {
+        if (recipe instanceof org.bukkit.inventory.ShapedRecipe) {
+            org.bukkit.inventory.ShapedRecipe shaped = (org.bukkit.inventory.ShapedRecipe) recipe;
+            return shaped.getKey().getNamespace().equals("uraniumcraft");
+        }
+        return false;
     }
     
     @EventHandler(priority = EventPriority.HIGHEST)

@@ -22,6 +22,9 @@ public class AdvancedCraftingManager {
     }
     
     private void registerAllRecipes() {
+        // Терминал лаборатории - доступен с самого начала (только с авторизацией)
+        registerLaboratoryTerminalRecipe();
+        
         // Базовые материалы (очень сложные)
         registerUraniumIngotRecipe();
         registerUraniumBlockRecipe();
@@ -33,7 +36,6 @@ public class AdvancedCraftingManager {
         // Строительные блоки (требуют квантовый процессор + много ресурсов)
         registerCentrifugeCoreRecipe();
         registerTeleportCoreRecipe();
-        registerLaboratoryTerminalRecipe();
         
         // Инструменты (сложные рецепты)
         registerGeigerCounterRecipe();
