@@ -52,6 +52,11 @@ public class LaboratoryManager {
             return false;
         }
         
+        // Проверка авторизации
+        if (!plugin.getAuthManager().checkAuthAndNotify(player)) {
+            return false;
+        }
+        
         if (data.hasActiveResearch()) {
             MessageUtil.sendMessage(player, "&cЛаборатория уже проводит исследование!");
             return false;

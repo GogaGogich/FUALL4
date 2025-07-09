@@ -24,7 +24,8 @@ public class CompactGUIListener implements Listener {
         // Проверяем, что это наш GUI
         if (title.contains("UraniumCraft") || title.contains("Каталог") || 
             title.contains("Достижения") || title.contains("Руководство") || 
-            title.contains("Админ")) {
+            title.contains("Админ") || title.contains("Рецепты") || 
+            title.contains("Лаборатория")) {
             
             event.setCancelled(true);
             

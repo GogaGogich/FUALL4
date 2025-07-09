@@ -220,6 +220,33 @@ public class CompactGUIManager {
             if (slot == 40) openMainMenu(player);
         } else if (title.contains("Админ")) {
             handleAdminClick(player, slot);
+        } else if (title.contains("Рецепты")) {
+            handleRecipesClick(player, slot);
+        } else if (title.contains("Лаборатория")) {
+            handleLaboratoryClick(player, slot);
+        }
+    }
+    
+    private void handleLaboratoryClick(Player player, int slot) {
+        if (slot == 49) {
+            // Открыть страницу рецептов
+            openRecipesPage(player);
+        }
+        // Остальные клики обрабатываются в LaboratoryManager
+    }
+    
+    private void handleRecipesClick(Player player, int slot) {
+        if (slot == 53) {
+            // Кнопка назад - возвращаемся к планшету или лаборатории
+            String previousTitle = player.getOpenInventory().getTitle();
+            if (previousTitle.contains("Лаборатория")) {
+                // Вернуться к лаборатории - нужно найти ближайшую лабораторию
+                player.closeInventory();
+                MessageUtil.sendMessage(player, "&7Возвращение к лаборатории...");
+            } else {
+                // Вернуться к планшету
+                openMainMenu(player);
+            }
         }
     }
     
